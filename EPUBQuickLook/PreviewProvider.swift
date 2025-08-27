@@ -32,9 +32,16 @@ final class PreviewProvider: NSViewController, QLPreviewingController {
 
     // Quick Look entry point (completion-handler variant works across macOS versions)
     func preparePreviewOfFile(at url: URL, completionHandler: @escaping (Error?) -> Void) {
+        // Show something immediately so QL doesn't look blank while we work
+        let loading = """
+        <html><body style="font: -apple-system-body; padding:24px">
+        <p>Loading EPUB…</p>
+        </body></html>
+        """
+        self.webView.loadHTMLString(loading, baseURL: nil)
+
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             do {
-                // Use the shared EPUBParser (in EPUBParser.swift)
                 let workDir = URL(fileURLWithPath: NSTemporaryDirectory())
                     .appendingPathComponent("EPUBQuickLook_\(UUID().uuidString)")
 
@@ -46,10 +53,20 @@ final class PreviewProvider: NSViewController, QLPreviewingController {
                 DispatchQueue.main.async {
                     self?.webView.loadHTMLString(merged.html, baseURL: merged.baseURL)
                     if #available(macOS 11.0, *) { self?.preferredContentSize = NSSize(width: 900, height: 1100) }
-                    completionHandler(nil)
+                    completionHandler(nil) // success
                 }
             } catch {
-                DispatchQueue.main.async { completionHandler(error) }
+                // Render the error inside the web view so we never see a blank panel
+                let html = """
+                <html><body style="font: -apple-system-body; padding:24px">
+                <h3>EPUB Quick Look Error</h3>
+                <pre>\(error.localizedDescription)</pre>
+                </body></html>
+                """
+                DispatchQueue.main.async {
+                    self?.webView.loadHTMLString(html, baseURL: nil)
+                    completionHandler(nil) // show error page instead of falling back
+                }
             }
         }
     }
