@@ -1,54 +1,56 @@
-//
 //  PreviewProvider.swift
 //  EPUBQuickLook
 //
-//  Created by Aryan on 27/8/2025.
-//
+//  Quick Look preview controller that renders EPUBs in a scrollable WKWebView.
 
-import Cocoa
-import Quartz
+import AppKit
+import WebKit
+import QuickLookUI
 
-class PreviewProvider: QLPreviewProvider, QLPreviewingController {
-    
+final class PreviewProvider: NSViewController, QLPreviewingController {
+    private var webView: WKWebView!
 
-    /*
-     Use a QLPreviewProvider to provide data-based previews.
-     
-     To set up your extension as a data-based preview extension:
+    override func loadView() {
+        let cfg = WKWebViewConfiguration()
+        cfg.defaultWebpagePreferences.allowsContentJavaScript = true
 
-     - Modify the extension's Info.plist by setting
-       <key>QLIsDataBasedPreview</key>
-       <true/>
-     
-     - Add the supported content types to QLSupportedContentTypes array in the extension's Info.plist.
+        let wv = WKWebView(frame: .zero, configuration: cfg)
+        wv.setValue(false, forKey: "drawsBackground")
+        self.webView = wv
 
-     - Change the NSExtensionPrincipalClass to this class.
-       e.g.
-       <key>NSExtensionPrincipalClass</key>
-       <string>$(PRODUCT_MODULE_NAME).PreviewProvider</string>
-     
-     - Implement providePreview(for:)
-     */
-    
-    func providePreview(for request: QLFilePreviewRequest) async throws -> QLPreviewReply {
-    
-        //You can create a QLPreviewReply in several ways, depending on the format of the data you want to return.
-        //To return Data of a supported content type:
-        
-        let contentType = UTType.plainText // replace with your data type
-        
-        let reply = QLPreviewReply.init(dataOfContentType: contentType, contentSize: CGSize.init(width: 800, height: 800)) { (replyToUpdate : QLPreviewReply) in
+        let root = NSView()
+        root.addSubview(wv)
+        wv.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            wv.leadingAnchor.constraint(equalTo: root.leadingAnchor),
+            wv.trailingAnchor.constraint(equalTo: root.trailingAnchor),
+            wv.topAnchor.constraint(equalTo: root.topAnchor),
+            wv.bottomAnchor.constraint(equalTo: root.bottomAnchor)
+        ])
+        self.view = root
+    }
 
-            let data = Data("Hello world".utf8)
-            
-            //setting the stringEncoding for text and html data is optional and defaults to String.Encoding.utf8
-            replyToUpdate.stringEncoding = .utf8
-            
-            //initialize your data here
-            
-            return data
+    // Quick Look entry point (completion-handler variant works across macOS versions)
+    func preparePreviewOfFile(at url: URL, completionHandler: @escaping (Error?) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            do {
+                // Use the shared EPUBParser (in EPUBParser.swift)
+                let workDir = URL(fileURLWithPath: NSTemporaryDirectory())
+                    .appendingPathComponent("EPUBQuickLook_\(UUID().uuidString)")
+
+                let parser = EPUBParser()
+                let extracted = try parser.unpackEPUB(at: url, to: workDir)
+                let pkg = try parser.parsePackage(at: extracted)
+                let merged = try parser.buildSingleHTML(from: pkg)
+
+                DispatchQueue.main.async {
+                    self?.webView.loadHTMLString(merged.html, baseURL: merged.baseURL)
+                    if #available(macOS 11.0, *) { self?.preferredContentSize = NSSize(width: 900, height: 1100) }
+                    completionHandler(nil)
+                }
+            } catch {
+                DispatchQueue.main.async { completionHandler(error) }
+            }
         }
-                
-        return reply
     }
 }
