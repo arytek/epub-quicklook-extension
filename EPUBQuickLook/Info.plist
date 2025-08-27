@@ -1,18 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
+<!-- EPUBQuickLook/Info.plist (snippet) -->
+<key>NSExtension</key>
+<dict>
+    <key>NSExtensionAttributes</key>
     <dict>
-        <key>NSExtensionAttributes</key>
-        <dict>
-            <key>QLSupportedContentTypes</key>
-            <array>
-                <string>org.idpf.epub-container</string>
-            </array>
-            <!-- View-based preview: do NOT set QLIsDataBasedPreview -->
-        </dict>
-        <key>NSExtensionPointIdentifier</key>
-        <string>com.apple.quicklook.preview</string>
-        <key>NSExtensionPrincipalClass</key>
-        <string>$(PRODUCT_MODULE_NAME).PreviewProvider</string>
+        <key>QLSupportedContentTypes</key>
+        <array>
+            <string>org.idpf.epub-container</string>
+        </array>
+        <!-- View-based preview: do NOT set QLIsDataBasedPreview -->
     </dict>
-</plist>
+    <key>NSExtensionPointIdentifier</key>
+    <string>com.apple.quicklook.preview</string>
+    <key>NSExtensionPrincipalClass</key>
+    <string>$(PRODUCT_MODULE_NAME).PreviewProvider</string>
+</dict>

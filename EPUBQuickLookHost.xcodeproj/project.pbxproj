@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9FC82D802E5EBF4D001561F0 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC82D7F2E5EBF4D001561F0 /* Quartz.framework */; };
-		9FC82D8D2E5EBF4D001561F0 /* EPUBQuickLook.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9FC82D7D2E5EBF4D001561F0 /* EPUBQuickLook.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9FC82D952E5EC085001561F0 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 9FC82D942E5EC085001561F0 /* ZIPFoundation */; };
+		9FC82D9D2E5F2449001561F0 /* EPUBQuickLook.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9FC82D7D2E5EBF4D001561F0 /* EPUBQuickLook.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,11 +39,11 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		9FC82D922E5EBF4D001561F0 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				9FC82D8D2E5EBF4D001561F0 /* EPUBQuickLook.appex in Embed Foundation Extensions */,
+				9FC82D9D2E5F2449001561F0 /* EPUBQuickLook.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,16 +57,6 @@
 		9FC82D7D2E5EBF4D001561F0 /* EPUBQuickLook.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EPUBQuickLook.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC82D7F2E5EBF4D001561F0 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		9FC82D8E2E5EBF4D001561F0 /* Exceptions for "EPUBQuickLook" folder in "EPUBQuickLook" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 9FC82D7C2E5EBF4D001561F0 /* EPUBQuickLook */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9FC82D502E5EB91D001561F0 /* EPUBQuickLookHost */ = {
@@ -86,9 +76,6 @@
 		};
 		9FC82D812E5EBF4D001561F0 /* EPUBQuickLook */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				9FC82D8E2E5EBF4D001561F0 /* Exceptions for "EPUBQuickLook" folder in "EPUBQuickLook" target */,
-			);
 			path = EPUBQuickLook;
 			sourceTree = "<group>";
 		};
@@ -637,7 +624,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PN4N7QP7X9;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = EPUBQuickLook/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = EPUBQuickLook;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -664,7 +651,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PN4N7QP7X9;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = EPUBQuickLook/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = EPUBQuickLook;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
