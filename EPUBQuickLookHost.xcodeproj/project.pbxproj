@@ -1,0 +1,756 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9FC82D802E5EBF4D001561F0 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC82D7F2E5EBF4D001561F0 /* Quartz.framework */; };
+		9FC82D8D2E5EBF4D001561F0 /* EPUBQuickLook.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9FC82D7D2E5EBF4D001561F0 /* EPUBQuickLook.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9FC82D952E5EC085001561F0 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 9FC82D942E5EC085001561F0 /* ZIPFoundation */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9FC82D5D2E5EB91F001561F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FC82D462E5EB91D001561F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FC82D4D2E5EB91D001561F0;
+			remoteInfo = EPUBQuickLookHost;
+		};
+		9FC82D672E5EB91F001561F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FC82D462E5EB91D001561F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FC82D4D2E5EB91D001561F0;
+			remoteInfo = EPUBQuickLookHost;
+		};
+		9FC82D8B2E5EBF4D001561F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9FC82D462E5EB91D001561F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FC82D7C2E5EBF4D001561F0;
+			remoteInfo = EPUBQuickLook;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9FC82D922E5EBF4D001561F0 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9FC82D8D2E5EBF4D001561F0 /* EPUBQuickLook.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9FC82D4E2E5EB91D001561F0 /* EPUBQuickLookHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPUBQuickLookHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FC82D5C2E5EB91F001561F0 /* EPUBQuickLookHostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EPUBQuickLookHostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FC82D662E5EB91F001561F0 /* EPUBQuickLookHostUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EPUBQuickLookHostUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FC82D7D2E5EBF4D001561F0 /* EPUBQuickLook.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EPUBQuickLook.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FC82D7F2E5EBF4D001561F0 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9FC82D8E2E5EBF4D001561F0 /* Exceptions for "EPUBQuickLook" folder in "EPUBQuickLook" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9FC82D7C2E5EBF4D001561F0 /* EPUBQuickLook */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9FC82D502E5EB91D001561F0 /* EPUBQuickLookHost */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EPUBQuickLookHost;
+			sourceTree = "<group>";
+		};
+		9FC82D5F2E5EB91F001561F0 /* EPUBQuickLookHostTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EPUBQuickLookHostTests;
+			sourceTree = "<group>";
+		};
+		9FC82D692E5EB91F001561F0 /* EPUBQuickLookHostUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EPUBQuickLookHostUITests;
+			sourceTree = "<group>";
+		};
+		9FC82D812E5EBF4D001561F0 /* EPUBQuickLook */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9FC82D8E2E5EBF4D001561F0 /* Exceptions for "EPUBQuickLook" folder in "EPUBQuickLook" target */,
+			);
+			path = EPUBQuickLook;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9FC82D4B2E5EB91D001561F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FC82D592E5EB91F001561F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FC82D632E5EB91F001561F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FC82D7A2E5EBF4D001561F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FC82D802E5EBF4D001561F0 /* Quartz.framework in Frameworks */,
+				9FC82D952E5EC085001561F0 /* ZIPFoundation in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9FC82D452E5EB91D001561F0 = {
+			isa = PBXGroup;
+			children = (
+				9FC82D502E5EB91D001561F0 /* EPUBQuickLookHost */,
+				9FC82D5F2E5EB91F001561F0 /* EPUBQuickLookHostTests */,
+				9FC82D692E5EB91F001561F0 /* EPUBQuickLookHostUITests */,
+				9FC82D812E5EBF4D001561F0 /* EPUBQuickLook */,
+				9FC82D7E2E5EBF4D001561F0 /* Frameworks */,
+				9FC82D4F2E5EB91D001561F0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9FC82D4F2E5EB91D001561F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9FC82D4E2E5EB91D001561F0 /* EPUBQuickLookHost.app */,
+				9FC82D5C2E5EB91F001561F0 /* EPUBQuickLookHostTests.xctest */,
+				9FC82D662E5EB91F001561F0 /* EPUBQuickLookHostUITests.xctest */,
+				9FC82D7D2E5EBF4D001561F0 /* EPUBQuickLook.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9FC82D7E2E5EBF4D001561F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9FC82D7F2E5EBF4D001561F0 /* Quartz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9FC82D4D2E5EB91D001561F0 /* EPUBQuickLookHost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FC82D702E5EB91F001561F0 /* Build configuration list for PBXNativeTarget "EPUBQuickLookHost" */;
+			buildPhases = (
+				9FC82D4A2E5EB91D001561F0 /* Sources */,
+				9FC82D4B2E5EB91D001561F0 /* Frameworks */,
+				9FC82D4C2E5EB91D001561F0 /* Resources */,
+				9FC82D922E5EBF4D001561F0 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FC82D8C2E5EBF4D001561F0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9FC82D502E5EB91D001561F0 /* EPUBQuickLookHost */,
+			);
+			name = EPUBQuickLookHost;
+			packageProductDependencies = (
+			);
+			productName = EPUBQuickLookHost;
+			productReference = 9FC82D4E2E5EB91D001561F0 /* EPUBQuickLookHost.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9FC82D5B2E5EB91F001561F0 /* EPUBQuickLookHostTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FC82D732E5EB91F001561F0 /* Build configuration list for PBXNativeTarget "EPUBQuickLookHostTests" */;
+			buildPhases = (
+				9FC82D582E5EB91F001561F0 /* Sources */,
+				9FC82D592E5EB91F001561F0 /* Frameworks */,
+				9FC82D5A2E5EB91F001561F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FC82D5E2E5EB91F001561F0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9FC82D5F2E5EB91F001561F0 /* EPUBQuickLookHostTests */,
+			);
+			name = EPUBQuickLookHostTests;
+			packageProductDependencies = (
+			);
+			productName = EPUBQuickLookHostTests;
+			productReference = 9FC82D5C2E5EB91F001561F0 /* EPUBQuickLookHostTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9FC82D652E5EB91F001561F0 /* EPUBQuickLookHostUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FC82D762E5EB91F001561F0 /* Build configuration list for PBXNativeTarget "EPUBQuickLookHostUITests" */;
+			buildPhases = (
+				9FC82D622E5EB91F001561F0 /* Sources */,
+				9FC82D632E5EB91F001561F0 /* Frameworks */,
+				9FC82D642E5EB91F001561F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FC82D682E5EB91F001561F0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				9FC82D692E5EB91F001561F0 /* EPUBQuickLookHostUITests */,
+			);
+			name = EPUBQuickLookHostUITests;
+			packageProductDependencies = (
+			);
+			productName = EPUBQuickLookHostUITests;
+			productReference = 9FC82D662E5EB91F001561F0 /* EPUBQuickLookHostUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		9FC82D7C2E5EBF4D001561F0 /* EPUBQuickLook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FC82D8F2E5EBF4D001561F0 /* Build configuration list for PBXNativeTarget "EPUBQuickLook" */;
+			buildPhases = (
+				9FC82D792E5EBF4D001561F0 /* Sources */,
+				9FC82D7A2E5EBF4D001561F0 /* Frameworks */,
+				9FC82D7B2E5EBF4D001561F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9FC82D812E5EBF4D001561F0 /* EPUBQuickLook */,
+			);
+			name = EPUBQuickLook;
+			packageProductDependencies = (
+				9FC82D942E5EC085001561F0 /* ZIPFoundation */,
+			);
+			productName = EPUBQuickLook;
+			productReference = 9FC82D7D2E5EBF4D001561F0 /* EPUBQuickLook.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9FC82D462E5EB91D001561F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					9FC82D4D2E5EB91D001561F0 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					9FC82D5B2E5EB91F001561F0 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 9FC82D4D2E5EB91D001561F0;
+					};
+					9FC82D652E5EB91F001561F0 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 9FC82D4D2E5EB91D001561F0;
+					};
+					9FC82D7C2E5EBF4D001561F0 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+				};
+			};
+			buildConfigurationList = 9FC82D492E5EB91D001561F0 /* Build configuration list for PBXProject "EPUBQuickLookHost" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9FC82D452E5EB91D001561F0;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9FC82D932E5EC085001561F0 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9FC82D4F2E5EB91D001561F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9FC82D4D2E5EB91D001561F0 /* EPUBQuickLookHost */,
+				9FC82D5B2E5EB91F001561F0 /* EPUBQuickLookHostTests */,
+				9FC82D652E5EB91F001561F0 /* EPUBQuickLookHostUITests */,
+				9FC82D7C2E5EBF4D001561F0 /* EPUBQuickLook */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9FC82D4C2E5EB91D001561F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FC82D5A2E5EB91F001561F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FC82D642E5EB91F001561F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FC82D7B2E5EBF4D001561F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9FC82D4A2E5EB91D001561F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FC82D582E5EB91F001561F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FC82D622E5EB91F001561F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FC82D792E5EBF4D001561F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9FC82D5E2E5EB91F001561F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FC82D4D2E5EB91D001561F0 /* EPUBQuickLookHost */;
+			targetProxy = 9FC82D5D2E5EB91F001561F0 /* PBXContainerItemProxy */;
+		};
+		9FC82D682E5EB91F001561F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FC82D4D2E5EB91D001561F0 /* EPUBQuickLookHost */;
+			targetProxy = 9FC82D672E5EB91F001561F0 /* PBXContainerItemProxy */;
+		};
+		9FC82D8C2E5EBF4D001561F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9FC82D7C2E5EBF4D001561F0 /* EPUBQuickLook */;
+			targetProxy = 9FC82D8B2E5EBF4D001561F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9FC82D6E2E5EB91F001561F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = PN4N7QP7X9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9FC82D6F2E5EB91F001561F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = PN4N7QP7X9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		9FC82D712E5EB91F001561F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EPUBQuickLookHost/EPUBQuickLookHost.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PN4N7QP7X9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = arytek.EPUBQuickLookHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9FC82D722E5EB91F001561F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EPUBQuickLookHost/EPUBQuickLookHost.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PN4N7QP7X9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = arytek.EPUBQuickLookHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		9FC82D742E5EB91F001561F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PN4N7QP7X9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = arytek.EPUBQuickLookHostTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EPUBQuickLookHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EPUBQuickLookHost";
+			};
+			name = Debug;
+		};
+		9FC82D752E5EB91F001561F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PN4N7QP7X9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = arytek.EPUBQuickLookHostTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EPUBQuickLookHost.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EPUBQuickLookHost";
+			};
+			name = Release;
+		};
+		9FC82D772E5EB91F001561F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PN4N7QP7X9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = arytek.EPUBQuickLookHostUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = EPUBQuickLookHost;
+			};
+			name = Debug;
+		};
+		9FC82D782E5EB91F001561F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PN4N7QP7X9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = arytek.EPUBQuickLookHostUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = EPUBQuickLookHost;
+			};
+			name = Release;
+		};
+		9FC82D902E5EBF4D001561F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = EPUBQuickLook/EPUBQuickLook.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PN4N7QP7X9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EPUBQuickLook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EPUBQuickLook;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = arytek.EPUBQuickLookHost.EPUBQuickLook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9FC82D912E5EBF4D001561F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = EPUBQuickLook/EPUBQuickLook.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PN4N7QP7X9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EPUBQuickLook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EPUBQuickLook;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = arytek.EPUBQuickLookHost.EPUBQuickLook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9FC82D492E5EB91D001561F0 /* Build configuration list for PBXProject "EPUBQuickLookHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FC82D6E2E5EB91F001561F0 /* Debug */,
+				9FC82D6F2E5EB91F001561F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FC82D702E5EB91F001561F0 /* Build configuration list for PBXNativeTarget "EPUBQuickLookHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FC82D712E5EB91F001561F0 /* Debug */,
+				9FC82D722E5EB91F001561F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FC82D732E5EB91F001561F0 /* Build configuration list for PBXNativeTarget "EPUBQuickLookHostTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FC82D742E5EB91F001561F0 /* Debug */,
+				9FC82D752E5EB91F001561F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FC82D762E5EB91F001561F0 /* Build configuration list for PBXNativeTarget "EPUBQuickLookHostUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FC82D772E5EB91F001561F0 /* Debug */,
+				9FC82D782E5EB91F001561F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FC82D8F2E5EBF4D001561F0 /* Build configuration list for PBXNativeTarget "EPUBQuickLook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FC82D902E5EBF4D001561F0 /* Debug */,
+				9FC82D912E5EBF4D001561F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9FC82D932E5EC085001561F0 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.19;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9FC82D942E5EC085001561F0 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9FC82D932E5EC085001561F0 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 9FC82D462E5EB91D001561F0 /* Project object */;
+}
