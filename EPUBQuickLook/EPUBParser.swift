@@ -17,28 +17,54 @@ enum EPUBParseError: Error { case containerNotFound, opfNotFound, malformed, io 
 
 final class EPUBParser: NSObject {
     func unpackEPUB(at epubURL: URL, to workDir: URL) throws -> URL {
-        // Using ZIPFoundation’s FileManager.unzipItem
-        try FileManager.default.createDirectory(at: workDir, withIntermediateDirectories: true)
-        try FileManager.default.unzipItem(at: epubURL, to: workDir)
+        let fm = FileManager.default
+        try fm.createDirectory(at: workDir, withIntermediateDirectories: true)
+
+        // Support both styles of EPUBs:
+        // 1) Standard zipped .epub file
+        // 2) Apple "package" .epub (a directory bundle reporting UTI com.apple.ibooks.epub)
+        var isDir: ObjCBool = false
+        if fm.fileExists(atPath: epubURL.path, isDirectory: &isDir), isDir.boolValue {
+            let dest = workDir.appendingPathComponent("EPUBPackage", isDirectory: true)
+            if fm.fileExists(atPath: dest.path) { try? fm.removeItem(at: dest) }
+            try fm.copyItem(at: epubURL, to: dest)
+            return dest
+        }
+
+        // Zip-style EPUB
+        try fm.unzipItem(at: epubURL, to: workDir)
         return workDir
     }
 
     func parsePackage(at extractedRoot: URL) throws -> EPUBPackage {
-        // 1) Locate container.xml
-        let containerURL = extractedRoot.appendingPathComponent("META-INF/container.xml")
-        guard FileManager.default.fileExists(atPath: containerURL.path) else { throw EPUBParseError.containerNotFound }
-        let containerData = try Data(contentsOf: containerURL)
-        let container = try XMLDocument(data: containerData)
-        // Find the @full-path attribute on the <rootfile> element (ignore namespaces)
-        let rootfileNodes = try container.nodes(forXPath: "//*[local-name()='rootfile']/@full-path")
-        guard let rootAttr = rootfileNodes.first as? XMLNode,
-              let opfPath = rootAttr.stringValue else {
-            throw EPUBParseError.opfNotFound
-        }
-        let opfURL = extractedRoot.appendingPathComponent(opfPath)
-        let rootFolder = opfURL.deletingLastPathComponent()
+        let fm = FileManager.default
 
-        // 2) Parse OPF: manifest + spine
+        // 1) Prefer META-INF/container.xml when present
+        let containerURL = extractedRoot.appendingPathComponent("META-INF/container.xml")
+        if fm.fileExists(atPath: containerURL.path) {
+            let containerData = try Data(contentsOf: containerURL)
+            let container = try XMLDocument(data: containerData)
+            if let rootAttr = try container.nodes(forXPath: "//*[local-name()='rootfile']/@full-path").first as? XMLNode,
+               let opfPath = rootAttr.stringValue {
+                let opfURL = extractedRoot.appendingPathComponent(opfPath)
+                return try parseOPF(at: opfURL)
+            }
+        }
+
+        // 2) Fallback: scan for any .opf file under the root (handles odd packages)
+        if let e = fm.enumerator(at: extractedRoot, includingPropertiesForKeys: nil) {
+            for case let url as URL in e {
+                if url.pathExtension.lowercased() == "opf" {
+                    return try parseOPF(at: url)
+                }
+            }
+        }
+
+        throw EPUBParseError.opfNotFound
+    }
+
+    private func parseOPF(at opfURL: URL) throws -> EPUBPackage {
+        let rootFolder = opfURL.deletingLastPathComponent()
         let opfData = try Data(contentsOf: opfURL)
         let opf = try XMLDocument(data: opfData)
 
@@ -128,8 +154,9 @@ final class EPUBParser: NSObject {
                 let nsMatched = matched as NSString
                 let val = nsMatched.substring(with: capInMatch)
 
-                // Skip absolute/external resources
-                if val.hasPrefix("http") || val.hasPrefix("file:") || val.hasPrefix("data:") {
+                // Skip absolute/external or non-file references (anchors, mailto, javascript)
+                if val.hasPrefix("http") || val.hasPrefix("file:") || val.hasPrefix("data:") ||
+                   val.hasPrefix("#") || val.hasPrefix("mailto:") || val.hasPrefix("javascript:") {
                     return matched
                 }
 
