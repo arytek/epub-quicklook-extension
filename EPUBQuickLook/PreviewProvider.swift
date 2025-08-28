@@ -1,20 +1,23 @@
 //  PreviewProvider.swift
 //  EPUBQuickLook
-//
-//  Quick Look preview controller that renders EPUBs in a scrollable WKWebView.
 
 import AppKit
 import WebKit
 import QuickLookUI
+import os.log
 
-final class PreviewProvider: NSViewController, QLPreviewingController {
+final class PreviewProvider: NSViewController, QLPreviewingController, WKNavigationDelegate {
     private var webView: WKWebView!
+    private let log = OSLog(subsystem: "EPUBQuickLook", category: "Preview")
 
+    // Build the view hierarchy with a WKWebView
     override func loadView() {
         let cfg = WKWebViewConfiguration()
         cfg.defaultWebpagePreferences.allowsContentJavaScript = true
+        cfg.websiteDataStore = .nonPersistent()
 
         let wv = WKWebView(frame: .zero, configuration: cfg)
+        wv.navigationDelegate = self
         wv.setValue(false, forKey: "drawsBackground")
         self.webView = wv
 
@@ -30,17 +33,28 @@ final class PreviewProvider: NSViewController, QLPreviewingController {
         self.view = root
     }
 
-    // Quick Look entry point (completion-handler variant works across macOS versions)
+    // Quick Look entry point
     func preparePreviewOfFile(at url: URL, completionHandler: @escaping (Error?) -> Void) {
-        // Show something immediately so QL doesn't look blank while we work
+        os_log("preparePreviewOfFile called for %{public}@", log: log, type: .info, url.path)
+
+        // ensure the view is loaded so `webView` exists
+        _ = self.view
+
+        // show immediate feedback
         let loading = """
         <html><body style="font: -apple-system-body; padding:24px">
         <p>Loading EPUB…</p>
         </body></html>
         """
-        self.webView.loadHTMLString(loading, baseURL: nil)
+        webView.loadHTMLString(loading, baseURL: nil)
+
+        // stop Finder's spinner promptly
+        DispatchQueue.main.async { completionHandler(nil) }
 
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let didStart = url.startAccessingSecurityScopedResource()
+            defer { if didStart { url.stopAccessingSecurityScopedResource() } }
+
             do {
                 let workDir = URL(fileURLWithPath: NSTemporaryDirectory())
                     .appendingPathComponent("EPUBQuickLook_\(UUID().uuidString)")
@@ -50,13 +64,17 @@ final class PreviewProvider: NSViewController, QLPreviewingController {
                 let pkg = try parser.parsePackage(at: extracted)
                 let merged = try parser.buildSingleHTML(from: pkg)
 
+                let indexURL = extracted.appendingPathComponent("ql_index.html")
+                try merged.html.write(to: indexURL, atomically: true, encoding: .utf8)
+
                 DispatchQueue.main.async {
-                    self?.webView.loadHTMLString(merged.html, baseURL: merged.baseURL)
-                    if #available(macOS 11.0, *) { self?.preferredContentSize = NSSize(width: 900, height: 1100) }
-                    completionHandler(nil) // success
+                    self?.webView.loadFileURL(indexURL, allowingReadAccessTo: extracted)
+                    if #available(macOS 11.0, *) {
+                        self?.preferredContentSize = NSSize(width: 900, height: 1100)
+                    }
                 }
             } catch {
-                // Render the error inside the web view so we never see a blank panel
+                os_log("EPUB error: %{public}@", log: self?.log ?? .default, type: .error, error.localizedDescription)
                 let html = """
                 <html><body style="font: -apple-system-body; padding:24px">
                 <h3>EPUB Quick Look Error</h3>
@@ -65,7 +83,6 @@ final class PreviewProvider: NSViewController, QLPreviewingController {
                 """
                 DispatchQueue.main.async {
                     self?.webView.loadHTMLString(html, baseURL: nil)
-                    completionHandler(nil) // show error page instead of falling back
                 }
             }
         }

@@ -103,7 +103,8 @@ final class EPUBParser: NSObject {
         var body = ""
         let base = pkg.rootFolder
         for (i, url) in pkg.spineURLs.enumerated() {
-            let src = try String(contentsOf: url, encoding: .utf8)
+            let data = try Data(contentsOf: url)
+            let src = String(data: data, encoding: .utf8) ?? (String(data: data, encoding: .isoLatin1) ?? "")
             let extracted = Self.extractBody(html: src)
             body += "\n<section class=\"chapter\" id=\"ch\(i)\">\n" + Self.rewriteResourceURLs(in: extracted, base: base) + "\n</section>\n"
         }
@@ -144,28 +145,25 @@ final class EPUBParser: NSObject {
         var out = html
         for p in patterns {
             out = out.replacingOccurrences(of: p) { match, matched in
-                // `matched` is the full attribute text, e.g. src="images/cover.jpg"
-                // Capture group 1 is the value inside the quotes.
+                // matched is the full attribute text, e.g. src="images/cover.jpg"
                 let whole = match.range
                 let cap = match.range(at: 1)
                 let capInMatch = NSRange(location: cap.location - whole.location, length: cap.length)
 
-                // Extract the captured value from the matched substring
                 let nsMatched = matched as NSString
                 let val = nsMatched.substring(with: capInMatch)
 
-                // Skip absolute/external or non-file references (anchors, mailto, javascript)
+                // Skip absolute/external or non-file references
                 if val.hasPrefix("http") || val.hasPrefix("file:") || val.hasPrefix("data:") ||
                    val.hasPrefix("#") || val.hasPrefix("mailto:") || val.hasPrefix("javascript:") {
                     return matched
                 }
 
-                // Build absolute file URL string relative to the EPUB root folder
-                let abs = URL(fileURLWithPath: val, relativeTo: base).standardizedFileURL.absoluteString
+                // Fix EPUB-root-relative paths like "/ops/foo.css"
+                let local = val.hasPrefix("/") ? String(val.dropFirst()) : val
+                let abs = URL(fileURLWithPath: local, relativeTo: base).standardizedFileURL.absoluteString
 
-                // Replace only the captured group inside the attribute
-                let replaced = nsMatched.replacingCharacters(in: capInMatch, with: abs)
-                return replaced
+                return nsMatched.replacingCharacters(in: capInMatch, with: abs)
             }
         }
         return out
@@ -178,21 +176,15 @@ private extension String {
     func replacingOccurrences(of pattern: String, with transform: (_ match: NSTextCheckingResult, _ matched: String) -> String) -> String {
         let re = try! NSRegularExpression(pattern: pattern, options: [.caseInsensitive])
 
-        // Work against the original string for match ranges, but build a new result with offsets.
         var result = self
         var delta = 0
         let originalNSString = self as NSString
 
         for m in re.matches(in: self, range: NSRange(startIndex..., in: self)) {
-            // Matched substring in the ORIGINAL string
             let matched = originalNSString.substring(with: m.range)
             let replacement = transform(m, matched)
-
-            // Apply replacement against the CURRENT result string using adjusted range
             let adjustedRange = NSRange(location: m.range.location + delta, length: m.range.length)
             result = (result as NSString).replacingCharacters(in: adjustedRange, with: replacement)
-
-            // Track length change for subsequent ranges
             delta += replacement.count - m.range.length
         }
         return result
