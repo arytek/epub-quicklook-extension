@@ -1,4 +1,4 @@
-# EPUBQuickLookHost
+# EPUB-QuickLook-Extension
 
 A macOS Quick Look extension that previews `.epub` books right in Finder. Fully compatible and working with the latest version of MacOS (MacOS 15.5).
 
