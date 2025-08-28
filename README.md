@@ -49,9 +49,3 @@ Run the host app once; build scheme "EPUBQuickLookHost." Then use "EPUBQuickLook
 # License
 MIT
 
-**CHANGELOG.md** (keep SemVer)
-```markdown
-# Changelog
-
-## 1.0.0 — 2025-08-28
-- First public release: Quick Look previews for EPUBs
