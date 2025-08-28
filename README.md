@@ -43,6 +43,7 @@ Run the host app once; build scheme "EPUBQuickLookHost." Then use "EPUBQuickLook
 
 # Credits
 [Aryan Nateghnia (Arytek)](https://github.com/arytek)
+
 [ZIPFoundation](https://github.com/weichsel/ZIPFoundation)
 
 # License
