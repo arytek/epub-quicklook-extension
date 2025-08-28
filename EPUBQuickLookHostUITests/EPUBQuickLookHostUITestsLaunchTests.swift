@@ -2,7 +2,7 @@
 //  EPUBQuickLookHostUITestsLaunchTests.swift
 //  EPUBQuickLookHostUITests
 //
-//  Created by Aryan on 27/8/2025.
+//  Created by Arytek on 27/8/2025.
 //
 
 import XCTest
