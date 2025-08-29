@@ -37,11 +37,12 @@ Select an `.epub` in Finder → press **Space**.
 - If preview is blank: ensure network client entitlement is present, then rebuild.
 
 # Build from Source
-```
-git clone https://github.com/arytek/epub-quicklook-extension.git
-```
-open EPUBQuickLookHost/EPUBQuickLookHost.xcodeproj
-Run the host app once; build scheme "EPUBQuickLookHost". Then use "EPUBQuickLook" build scheme for further testing/development.
+- Run:
+  ```bash 
+  git clone https://github.com/arytek/epub-quicklook-extension.git
+  ```
+  Open EPUBQuickLookHost/EPUBQuickLookHost.xcodeproj
+  Run the host app once; build scheme "EPUBQuickLookHost". Then use "EPUBQuickLook" build scheme for further testing/development.
 
 # Credits
 [Aryan Nateghnia (Arytek)](https://github.com/arytek)
