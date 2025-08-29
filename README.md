@@ -41,8 +41,8 @@ Select an `.epub` in Finder → press **Space**.
   ```bash 
   git clone https://github.com/arytek/epub-quicklook-extension.git
   ```
-  Open EPUBQuickLookHost/EPUBQuickLookHost.xcodeproj
-  Run the host app once; build scheme "EPUBQuickLookHost". Then use "EPUBQuickLook" build scheme for further testing/development.
+  Open `EPUBQuickLookHost/EPUBQuickLookHost.xcodeproj`
+  Run the host app once; build scheme *"EPUBQuickLookHost"*. Then use *"EPUBQuickLook"* build scheme for further testing/development.
 
 # Credits
 [Aryan Nateghnia (Arytek)](https://github.com/arytek)
