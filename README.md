@@ -12,7 +12,7 @@ A macOS Quick Look extension that previews `.epub` books right in Finder. Fully 
 ## Requirements
 - macOS 12+
 
-## Install
+## Install (Working progress coming May 2026)
 1. Download the latest **.dmg** from [Releases](../../releases).
 2. Drag **EPUBQuickLookHost.app** to **/Applications** and open it once.
 3. If needed: System Settings → Privacy & Security → Extensions → **Quick Look** → enable **EPUBQuickLook**.
